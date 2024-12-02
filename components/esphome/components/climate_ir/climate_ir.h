@@ -24,12 +24,11 @@ class ClimateIR : public Component,
                   public remote_base::RemoteTransmittable {
  public:
   ClimateIR(float minimum_temperature, float maximum_temperature, float temperature_step = 1.0f,
-            bool supports_dry = true, bool supports_fan_only = false, std::set<climate::ClimateFanMode> fan_modes = {},
+            bool supports_dry = false, bool supports_fan_only = false, std::set<climate::ClimateFanMode> fan_modes = {},
             std::set<climate::ClimateSwingMode> swing_modes = {}, std::set<climate::ClimatePreset> presets = {}) {
     this->minimum_temperature_ = minimum_temperature;
     this->maximum_temperature_ = maximum_temperature;
     this->temperature_step_ = temperature_step;
-    // this->supports_dry_ = supports_dry;
     this->supports_dry_ = supports_dry;
     this->supports_fan_only_ = supports_fan_only;
     this->fan_modes_ = std::move(fan_modes);
