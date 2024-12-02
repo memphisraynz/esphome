@@ -120,6 +120,7 @@ void FujitsuGeneralClimate::transmit_state() {
   }
 
   // Set mode
+  SET_NIBBLE(remote_state, FUJITSU_GENERAL_MODE_NIBBLE, FUJITSU_GENERAL_MODE_DRY);
   switch (this->mode) {
     case climate::CLIMATE_MODE_COOL:
       SET_NIBBLE(remote_state, FUJITSU_GENERAL_MODE_NIBBLE, FUJITSU_GENERAL_MODE_COOL);
@@ -127,9 +128,9 @@ void FujitsuGeneralClimate::transmit_state() {
     case climate::CLIMATE_MODE_HEAT:
       SET_NIBBLE(remote_state, FUJITSU_GENERAL_MODE_NIBBLE, FUJITSU_GENERAL_MODE_HEAT);
       break;
-    case climate::CLIMATE_MODE_DRY:
-      SET_NIBBLE(remote_state, FUJITSU_GENERAL_MODE_NIBBLE, FUJITSU_GENERAL_MODE_DRY);
-      break;
+    // case climate::CLIMATE_MODE_DRY:
+    //   SET_NIBBLE(remote_state, FUJITSU_GENERAL_MODE_NIBBLE, FUJITSU_GENERAL_MODE_DRY);
+    //   break;
     case climate::CLIMATE_MODE_FAN_ONLY:
       SET_NIBBLE(remote_state, FUJITSU_GENERAL_MODE_NIBBLE, FUJITSU_GENERAL_MODE_FAN);
       break;
