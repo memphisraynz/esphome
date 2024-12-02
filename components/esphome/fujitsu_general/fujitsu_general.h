@@ -55,6 +55,7 @@ class FujitsuGeneralClimate : public climate_ir::ClimateIR {
                    climate::CLIMATE_FAN_HIGH, climate::CLIMATE_FAN_QUIET},
                   {climate::CLIMATE_SWING_OFF, climate::CLIMATE_SWING_VERTICAL, climate::CLIMATE_SWING_HORIZONTAL,
                    climate::CLIMATE_SWING_BOTH}) {}
+void set_supports_dry(bool supports_dry) { this->supports_dry_ = supports_dry; }
 
  protected:
   /// Transmit via IR the state of this climate controller.
