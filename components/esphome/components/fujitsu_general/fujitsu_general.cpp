@@ -94,6 +94,7 @@ climate::FujitsuGeneralClimate::traits() {
         climate::CLIMATE_MODE_FAN_ONLY,
         climate::CLIMATE_MODE_OFF,
     });
+  return traits;
 }
 
 void FujitsuGeneralClimate::transmit_state() {
