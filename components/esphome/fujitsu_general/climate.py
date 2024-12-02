@@ -16,6 +16,7 @@ CONFIG_SCHEMA = climate_ir.CLIMATE_IR_WITH_RECEIVER_SCHEMA.extend(
     }
 )
 
+CONF_SUPPORTS_DRY = "supports_dry"
 
 async def to_code(config):
     var = cg.new_Pvariable(config[CONF_ID])
