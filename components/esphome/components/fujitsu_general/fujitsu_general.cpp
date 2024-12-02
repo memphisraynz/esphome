@@ -331,7 +331,8 @@ bool FujitsuGeneralClimate::on_receive(remote_base::RemoteReceiveData data) {
       case FUJITSU_GENERAL_MODE_HEAT:
         this->mode = climate::CLIMATE_MODE_HEAT;
         break;
-      case FUJITSU_GENERAL_MODE_DRY:
+      // case FUJITSU_GENERAL_MODE_DRY:
+      case FUJITSU_GENERAL_MODE_COOL:
         this->mode = climate::CLIMATE_MODE_DRY;
         break;
       case FUJITSU_GENERAL_MODE_FAN:
