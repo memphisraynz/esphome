@@ -56,6 +56,8 @@ class FujitsuGeneralClimate : public climate_ir::ClimateIR {
                   {climate::CLIMATE_SWING_OFF, climate::CLIMATE_SWING_VERTICAL, climate::CLIMATE_SWING_HORIZONTAL,
                    climate::CLIMATE_SWING_BOTH}) {}
 
+  void set_supports_dry(bool supports_dry) { this->supports_dry_ = supports_dry; }
+
  protected:
   /// Transmit via IR the state of this climate controller.
   void transmit_state() override;
@@ -77,7 +79,7 @@ class FujitsuGeneralClimate : public climate_ir::ClimateIR {
   // true if currently on - fujitsus transmit an on flag on when the remote moves from off to on
   bool power_{false};
 
-  climate::ClimateTraits traits() override;
+  ClimateTraits traits() override;
 };
 
 }  // namespace fujitsu_general
