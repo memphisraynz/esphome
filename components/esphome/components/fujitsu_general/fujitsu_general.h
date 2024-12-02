@@ -76,6 +76,8 @@ class FujitsuGeneralClimate : public climate_ir::ClimateIR {
 
   // true if currently on - fujitsus transmit an on flag on when the remote moves from off to on
   bool power_{false};
+
+  climate::ClimateTraits traits() override;
 };
 
 }  // namespace fujitsu_general
