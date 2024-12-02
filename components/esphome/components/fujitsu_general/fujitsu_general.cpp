@@ -85,6 +85,17 @@ const uint16_t FUJITSU_GENERAL_TRL_SPACE = 8000;
 
 const uint32_t FUJITSU_GENERAL_CARRIER_FREQUENCY = 38000;
 
+climate::FujitsuGeneralClimate::traits() {
+    this->traits_.set_supported_modes({
+        climate::CLIMATE_MODE_AUTO,
+        climate::CLIMATE_MODE_COOL,
+        climate::CLIMATE_MODE_DRY,
+        climate::CLIMATE_MODE_HEAT,
+        climate::CLIMATE_MODE_FAN_ONLY,
+        climate::CLIMATE_MODE_OFF,
+    });
+}
+
 void FujitsuGeneralClimate::transmit_state() {
   if (this->mode == climate::CLIMATE_MODE_OFF) {
     this->transmit_off_();
@@ -120,7 +131,6 @@ void FujitsuGeneralClimate::transmit_state() {
   }
 
   // Set mode
-  SET_NIBBLE(remote_state, FUJITSU_GENERAL_MODE_NIBBLE, FUJITSU_GENERAL_MODE_DRY);
   switch (this->mode) {
     case climate::CLIMATE_MODE_COOL:
       SET_NIBBLE(remote_state, FUJITSU_GENERAL_MODE_NIBBLE, FUJITSU_GENERAL_MODE_COOL);
@@ -128,9 +138,9 @@ void FujitsuGeneralClimate::transmit_state() {
     case climate::CLIMATE_MODE_HEAT:
       SET_NIBBLE(remote_state, FUJITSU_GENERAL_MODE_NIBBLE, FUJITSU_GENERAL_MODE_HEAT);
       break;
-    // case climate::CLIMATE_MODE_DRY:
-    //   SET_NIBBLE(remote_state, FUJITSU_GENERAL_MODE_NIBBLE, FUJITSU_GENERAL_MODE_DRY);
-    //   break;
+    case climate::CLIMATE_MODE_DRY:
+      SET_NIBBLE(remote_state, FUJITSU_GENERAL_MODE_NIBBLE, FUJITSU_GENERAL_MODE_DRY);
+      break;
     case climate::CLIMATE_MODE_FAN_ONLY:
       SET_NIBBLE(remote_state, FUJITSU_GENERAL_MODE_NIBBLE, FUJITSU_GENERAL_MODE_FAN);
       break;
